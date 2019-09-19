@@ -1,0 +1,42 @@
+<div class="login-main">
+  <!--header-->
+  <header class="login-header">
+    <img class="system-logo" src="{{loginLogo}}" alt="LOGO">
+    <h1 class="system-name">{{appName}}</h1>
+  </header>
+  <!--/.header-->
+  <!--content-->
+  <div class="login-body" [ngStyle]="{'height':loginContentH + 'px'}">
+    <div class="login-content">
+      <h2 class="login-title">{{welcomeText}}</h2>
+      <div class="form-container">
+        <form #loginForm="ngForm" (ngSubmit)="loginForm.form.valid && doLogin()">
+          <div class="form-item-group">
+            <input class="form-item input-text user-input input-bg-fix" name="userName" [(ngModel)]="userName"
+              #UserName="ngModel" type="text" placeholder="用户名" autocomplete="off" required />
+            <span class="input-icon user-bg-img"></span>
+            <span *ngIf="loginForm.submitted && UserName.invalid" class="text-tip-danger">用户名输入不正确</span>
+          </div>
+          <div class="form-item-group">
+            <input class="form-item input-text password-input input-bg-fix" #Password="ngModel" name="password"
+              [(ngModel)]="password" type="password" placeholder="密码" autocomplete="off" required minlength="6"
+              maxlength="20" />
+            <span class="input-icon password-bg-img"></span>
+            <span *ngIf="loginForm.submitted && !Password.valid" class="text-tip-danger">密码不能为空，且长度必须为6~20位</span>
+          </div>
+          <button type="submit" class="submit-btn">登录</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!--/.content-->
+
+  <!--footer-->
+  <footer class="login-footer">
+    <p>
+      <img src="assets/img/login/version.png" class="system-version" />
+      Copyright © Wlei Corporation, All Rights Reserved &nbsp;&nbsp;{{appVersion}}
+    </p>
+  </footer>
+  <!--/.footer-->
+</div>

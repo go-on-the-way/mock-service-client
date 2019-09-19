@@ -1,0 +1,109 @@
+<app-scroll-container maxHeight="100%">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h3>布局方式</h3>
+        <h6>1.等分布局</h6>
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              1/3
+            </div>
+            <div class="col">
+              1/3
+            </div>
+            <div class="col">
+              1/3
+            </div>
+          </div>
+        </div>
+        <hr>
+        <h3>表格</h3>
+        <!--表格工具栏-->
+        <app-w-toolbar>
+          <form #searchForm="ngForm" class="form-module inline-form serach-form ">
+            <div class="form-input-wrap">
+              <label>类型:</label>
+              <p-dropdown name="type" [options]="[]" [filter]="true" emptyFilterMessage="无数据" [showClear]="true"
+                [autoDisplayFirst]="false" placeholder="请选择"></p-dropdown>
+            </div>
+            <div class="form-input-wrap">
+              <label>名称:</label>
+              <input name="searchText" [(ngModel)]="searchText" type="text" pInputText placeholder="请输入">
+            </div>
+            <div class="form-btn">
+              <p-button styleClass="w-app-button ui-button-search" icon="fa fa-search" label="搜索" (onClick)="btnSearch(pTable)"></p-button>
+            </div>
+          </form>
+          <div class="toolbar-right">
+            <p-button styleClass="w-app-button ui-button-save" icon="fa fa-plus" label="增加"></p-button>&nbsp;&nbsp;
+            <p-button styleClass="w-app-button ui-button-delete" icon="fa fa-trash-o" label="删除"></p-button>
+          </div>
+        </app-w-toolbar>
+        <!--表格-->
+        <div class="app-w-table">
+          <p-table #pTable [columns]="dt.cols" [value]="dt.value" [paginator]="true" [rows]="dt.pm.pageSize"
+            [totalRecords]="dt.pm.total" [rowsPerPageOptions]="dt.pm.pageList" [alwaysShowPaginator]="false" [lazy]="true"
+            [(selection)]="dt.selection" (onPage)="dt.onPage($event)" [responsive]="true" [resizableColumns]="true"
+            [autoLayout]="true" paginatorDropdownAppendTo="body">
+            <ng-template pTemplate="header" let-columns>
+              <tr>
+                <ng-template ngFor let-col [ngForOf]="columns">
+                  <th *ngIf="col.field === 'ck';else elseBlock" style="width: 2.25em">
+                    <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                  </th>
+                  <ng-template #elseBlock>
+                    <th class="text-center" pResizableColumn>{{col.header}}</th>
+                  </ng-template>
+                </ng-template>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-row let-columns="columns">
+              <tr *ngIf="!!row">
+                <ng-template ngFor let-col [ngForOf]="columns">
+                  <td *ngIf="col.field === 'ck';else elseBlock">
+                    <p-tableCheckbox [value]="row"></p-tableCheckbox>
+                  </td>
+                  <ng-template #elseBlock>
+                    <td [ngSwitch]="col.field" class="text-center">
+                      <span *ngSwitchCase="'operator'">
+                        <a href="javascript:void(0)">删除</a>&nbsp;<a href="javascript:void(0)">编辑</a>
+                      </span>
+                      <span *ngSwitchDefault>{{row[col.field]}}</span>
+                    </td>
+                  </ng-template>
+                </ng-template>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage" let-columns>
+              <tr>
+                <td [attr.colspan]="columns.length" class="text-center">暂无数据</td>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="paginatorleft">
+              共{{dt.pm.total}}条记录 第{{dt.pm.pageNo}}/{{dt.pm.totalPage}}页
+            </ng-template>
+            <ng-template pTemplate="paginatorright">
+              跳至<input pKeyFilter="pint" [ngModelOptions]="{standalone: true}" [(ngModel)]="dt.pm.toPage" (keypress)="dt.gotoPage($event,pTable)">页
+            </ng-template>
+          </p-table>
+        </div>
+        <hr>
+        <h3>滚动条区域</h3>
+        <app-scroll-container #scrollContent maxHeight="200px">
+          <p *ngFor="let item of scrollData;let i=index">{{item + i}}</p>
+        </app-scroll-container>
+        <h3>拖拽布局</h3>
+        <button (click)="addItem()">添加模块</button>
+        <div class="drag-layout">
+          <div class="gridster">
+            <ul>
+            </ul>
+          </div>
+        </div>
+        <h3>弹出公共确认框</h3>
+        <button (click)="pop()">确认框</button>
+      </div>
+    </div>
+  </div>
+</app-scroll-container>

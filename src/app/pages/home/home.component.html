@@ -1,0 +1,32 @@
+<div class="container-full">
+  <!--头部-->
+  <app-home-header (exitEvt)="exit()"></app-home-header>
+  <div class="home-container">
+    <!--侧边栏-->
+    <div class="home-siderbar" [ngClass]="{'shrink':shrinked}">
+      <app-scroll-container maxHeight="100%">
+        <app-home-siderbar>
+          <!--菜单-->
+          <app-tree-menu [menus]="menuModel$ | async" [isShrinked]="shrinked"></app-tree-menu>
+        </app-home-siderbar>
+      </app-scroll-container>
+      <!--伸缩按钮-->
+      <button class="btn-stretch" (click)="toggleSiderbar()">
+        <span class="stretch-icon rivamed-icon icon-thin-left-arrow"></span>&nbsp;
+        <span *ngIf="!shrinked">rivamed {{appVersion}}</span>
+      </button>
+    </div>
+    <div class="home-body">
+      <!--面包屑-->
+      <header class="home-breadcrumbs">
+        <app-breadcrumbs></app-breadcrumbs>
+      </header>
+      <!--页面内容-->
+      <div class="home-content">
+        <app-scroll-container maxHeight="100%">
+          <router-outlet></router-outlet>
+        </app-scroll-container>
+      </div>
+    </div>
+  </div>
+</div>

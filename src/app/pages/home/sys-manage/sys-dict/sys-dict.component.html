@@ -1,0 +1,49 @@
+<h5>新增</h5>
+<form>
+  <div>
+    <label>
+      接口地址
+    </label>
+    <input name="url" type="text" [(ngModel)]="formModel.url">
+  </div>
+  <div>
+    <label style="vertical-align:top">
+      接口数据
+    </label>
+    <textarea name="data" cols="30" rows="10" [(ngModel)]="formModel.data"></textarea>
+  </div>
+  <button type="button" (click)="add()">提交</button>
+</form>
+<p></p>
+<h5>查询</h5>
+<form>
+  <input type="text" name="url" [(ngModel)]="serachModel.url"> <button type="button" (click)="search()">搜索</button>
+</form>
+<div>
+  <span>url</span>&nbsp;&nbsp;&nbsp;&nbsp;
+  <span>json字符串</span>
+</div>
+<div *ngFor="let item of list">
+  <a href="javascript:void(0)">{{item.url}}</a>&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="javascript:void(0)">{{item.data}}</a>&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="javascript:void(0)" (click)="delete(item)">删除</a>&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="javascript:void(0)" (click)="updateClick(item)">更新</a>
+</div>
+<div *ngIf="list.length === 0">暂无数据！</div>
+<p></p>
+<h5>更新</h5>
+<form>
+  <div>
+    <label>
+      接口地址
+    </label>
+    <input name="url" type="text" [(ngModel)]="updateModel.url">
+  </div>
+  <div>
+    <label style="vertical-align:top">
+      接口数据
+    </label>
+    <textarea name="data" cols="30" rows="10" [(ngModel)]="updateModel.data"></textarea>
+  </div>
+  <button type="button" (click)="update()">提交</button>
+</form>

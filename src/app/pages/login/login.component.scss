@@ -1,0 +1,144 @@
+/* ==============================================
+ * login page style
+ * @Auth: wlei
+ * @Date: 2019/03/13
+ * ==============================================*/
+
+ $body-bg-img:url("../../../assets/img/login/login.png");
+ $title-bg-img:url("../../../assets/img/login/title_bg.png");
+ $lock-active-img:url("../../../assets/img/login/lock_active.png");
+ $lock-inactive-img:url("../../../assets/img/login/lock_inactive.png");
+ $user-active-img:url("../../../assets/img/login/user_active.png");
+ $user-inactive-img:url("../../../assets/img/login/user_inactive.png");
+ $white:#fff;
+ $loginBgColor:#1B878E;
+ $focusBorderColor:#00A98D;
+
+.login-main {
+  height: 100vh;
+  width: 100%;
+  min-width: 70em;
+  background-color: $white;
+}
+
+.system-logo {
+  display: inline-block;
+  height: 60%;
+  margin-right: 0.5rem;
+  margin-left: 15%;
+}
+
+.system-name {
+  display: inline-block;
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.login-header {
+  display: flex;
+  height: 6em;
+  align-items: center;
+}
+
+.login-body {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background: $loginBgColor $body-bg-img left center no-repeat;
+  background-size:contain;
+}
+
+.login-footer {
+  position: fixed;
+  bottom: 0;
+  margin-top:1em;
+  width: 100%;
+  text-align: center;
+  p {
+    margin-top:1rem;
+  }
+}
+
+.login-content {
+  position: relative;
+  width:30rem;
+  height: 60%;
+  margin-right: 15%;
+}
+
+.login-title {
+  position: absolute;
+  top: -1em;
+  left: 10%;
+  width: 80%;
+  padding: 1rem 0.5rem;
+  margin:0;
+  font-size: 1.5rem;
+  color: $white;
+  text-align: center;
+  background: $title-bg-img center center no-repeat;
+  background-size: 100% 100%;
+}
+
+.user-bg-img {
+  background: $user-inactive-img 0.5rem center no-repeat;
+}
+
+.password-bg-img {
+  background: $lock-inactive-img 0.5rem center no-repeat;
+}
+
+.form-container {
+  padding: 4rem 1.25rem 1.25rem 1.25rem;
+  background: $white;
+
+  .form-item-group {
+    position: relative;
+    margin-bottom: 1rem;
+    .form-item {
+      display: block;
+      width: 100%;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  .input-icon {
+    position: absolute;
+    top:0.5rem;
+    display: inline-block;
+    height: 2rem;
+    width:2rem;
+  }
+
+  .input-text {
+    padding: 1rem 0.5rem 1rem 2rem;
+    border-radius: 0.4rem;
+    &:focus {
+      border: 1px solid $focusBorderColor;
+      & + .user-bg-img {
+        background: $user-active-img 0.5rem center no-repeat;
+      }
+
+      & + .password-bg-img {
+        background: $lock-active-img 0.5rem center no-repeat;
+      }
+    }
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 0.5rem 0;
+    margin: 1rem 0;
+    border: 0;
+    font-size: 1.5rem;
+    color: $white;
+    border-radius: 0.2rem;
+    background: #1C6573;
+    cursor: pointer;
+  }
+
+}
+
+.system-version {
+  vertical-align: middle;
+}

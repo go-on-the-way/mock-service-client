@@ -1,0 +1,32 @@
+@function strip-units($number) {
+  //去掉单位
+  @return $number / ($number * 0 + 1);
+}
+
+@function pxToVh($px) {
+  @if not unitless($px) {
+    // 如果带有单位
+    $px: strip-units($px); // 去掉单位
+  }
+  @return $px / $design-h * 100vh;
+}
+
+@function pxToVw($px) {
+  @if not unitless($px) {
+    // 如果带有单位
+    $px: strip-units($px); // 去掉单位
+  }
+  @return $px / $design-w * 100vw;
+}
+
+@function pxToRem($px) {
+  @if not unitless($px) {
+    // 如果带有单位
+    $px: strip-units($px); // 去掉单位
+  }
+  @return $px / strip-units($root-ft-size) * 1rem;
+}
+
+@function pxToFontSize($px) {
+  @return pxToVw($px);
+}

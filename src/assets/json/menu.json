@@ -1,0 +1,52 @@
+[
+  {
+    "label": "首页",
+    "icon": "rivamed-icon icon-home",
+    "routerLink": "/home/index",
+    "expanded": true,
+    "hasChild": false,
+    "children": []
+  },
+  {
+    "label": "系统管理",
+    "icon": "rivamed-icon icon-permission",
+    "expanded": true,
+    "routerLink": "",
+    "hasChild": true,
+    "children": [
+      {
+        "label": "Mock测试页面",
+        "icon": "rivamed-icon icon-circle",
+        "expanded": false,
+        "hasChild": false,
+        "routerLink": "/home/sysManage/dict",
+        "children": []
+      }
+    ]
+  },
+  {
+    "label": "权限管理",
+    "icon": "rivamed-icon icon-permission",
+    "expanded": true,
+    "routerLink": "",
+    "hasChild": true,
+    "children": [
+      {
+        "label": "角色管理",
+        "icon": "rivamed-icon icon-circle",
+        "expanded": false,
+        "hasChild": false,
+        "routerLink": "/home/permissionManage/role",
+        "children": []
+      },
+      {
+        "label": "账户管理",
+        "icon": "rivamed-icon icon-circle",
+        "expanded": false,
+        "hasChild": false,
+        "routerLink": "/home/permissionManage/user",
+        "children": []
+      }
+    ]
+  }
+]

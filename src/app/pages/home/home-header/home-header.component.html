@@ -1,0 +1,18 @@
+<header class="app-home-header">
+  <a class="app-logo" routerLink="{{appUrl}}">
+    <img class="app-icon" src="{{appLogo}}" />
+    <span class="app-name">{{appName}}</span>
+  </a>
+  <ul class="home-header-toolbar">
+    <li class="toolbar-item">
+      <a class="toolbar-item-user">
+        <span class="rivamed-icon icon-user"></span>&nbsp;&nbsp;{{userName}}
+      </a>
+    </li>
+    <li class="toolbar-item">
+      <a class="toolbar-item-exit" (click)="logout()" title="退出">
+        <span class="rivamed-icon icon-exit"></span>
+      </a>
+    </li>
+  </ul>
+</header>

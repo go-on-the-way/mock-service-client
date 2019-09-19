@@ -1,0 +1,20 @@
+@import "../../../../scss/common/variable";
+@import "../../../../scss/common/functions";
+
+.app-breadcrumbs {
+  .breadcrumbs-item {
+    display: inline-block;
+    color: $color-ft-main;
+    &.active {
+      font-weight: 600;
+    }
+
+    & + .breadcrumbs-item:before {
+      display: inline-block;
+      padding-right: 0.5rem;
+      padding-left: 0.5rem;
+      color: $coloe-breadcrumbs-separator;
+      content: "/";
+    }
+  }
+}

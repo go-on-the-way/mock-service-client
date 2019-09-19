@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./assets/iconfont/rivamed-iconfont.css";
+@import "./scss/z-style";
+
+html {
+  font-size: $root-ft-size;
+  line-height: $root-line-height;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC",
+    "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei",
+    sans-serif;
+  background-color: $color-body-bg;
+}
+
+//解决输入框背景在google下为淡黄色的问题
+.input-bg-fix {
+  box-shadow: 10rem 10rem #fff inset;
+}

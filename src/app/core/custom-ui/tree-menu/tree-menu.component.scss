@@ -1,0 +1,106 @@
+@import "../../../../scss/common/variable";
+@import "../../../../scss/common/functions";
+
+.app-tree-menu {
+  .menu-item {
+    position: relative;
+    display: block;
+    padding: 0.75rem 1rem;
+    color: $color-ft-main;
+    cursor: pointer;
+
+    &:hover,
+    &.active,
+    &.expand:hover {
+      color: $color-white;
+      background-color: $color-theme-main;
+    }
+
+    &.expand {
+      background-color: $color-body-bg;
+      .trigger-icon {
+        transform: rotate(-90deg) scale(0.6, 0.6);
+      }
+    }
+
+    .menu-icon {
+      display: inline-block;
+      margin-right: 0.5rem;
+    }
+
+    .menu-title {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .trigger-icon {
+      position: absolute;
+      right: 5%;
+      top: 20%;
+      transform: scale(0.6, 0.6);
+      transition: all 500ms;
+    }
+  }
+}
+
+//子菜单
+.menu-items {
+  .menu-icon {
+    margin-left: 1rem;
+    transform: scale(0.6, 0.6);
+  }
+  .menu-item {
+    background-color: $color-body-bg;
+  }
+}
+
+//收缩菜单样式
+.shrink {
+  .trigger-icon,
+  .menu-title,
+  .menu-items {
+    display: none;
+  }
+
+  .menu-item {
+    &.expand {
+      color: $color-white;
+      background-color: $color-theme-main;
+    }
+  }
+
+  > li:hover {
+    width: 19rem;
+    .menu-item {
+      color: $color-ft-main;
+      background-color: $color-white;
+      &:hover,
+      &.active,
+      &.expand:hover {
+        color: $color-white;
+        background-color: $color-theme-main;
+      }
+    }
+
+    .menu-title {
+      display: inline-block;
+    }
+
+    .menu-items {
+      display: block;
+      width: 100%;
+      .menu-icon {
+        margin-left: 2.5rem;
+      }
+      > ul {
+        position: absolute;
+        left: 3.5rem;
+        z-index: 999;
+        > li {
+          width: 15.5rem;
+        }
+      }
+    }
+  }
+}

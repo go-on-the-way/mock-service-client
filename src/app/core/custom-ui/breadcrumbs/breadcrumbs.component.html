@@ -1,0 +1,8 @@
+<ol class="app-breadcrumbs">
+  <ng-template ngFor let-breadcrumb [ngForOf]="breadcrumbs" let-last=last let-first=first>
+    <li class="breadcrumbs-item" [ngClass]="{active: last}">
+      <a *ngIf="!breadcrumb.canNavigate">{{breadcrumb.label}}</a>
+      <a *ngIf="breadcrumb.canNavigate" [routerLink]="breadcrumb.url">{{breadcrumb.label}}</a>
+    </li>
+  </ng-template>
+</ol>

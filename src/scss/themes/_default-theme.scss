@@ -1,0 +1,299 @@
+//页面头部
+.app-home-header {
+  background-color: $color-theme-main;
+  border-bottom: 1px solid #cfd8dc;
+  .app-name {
+    color: $color-white;
+  }
+}
+
+//侧边栏
+
+//---form表单
+.form-module {
+  // 解决输入框背景在google下为淡黄色的问题
+  input {
+    box-shadow: 10rem 10rem #fff inset;
+  }
+  &.inline-form {
+    display: inline-block;
+  }
+  &.serach-form {
+    .form-input-wrap {
+      margin-bottom: 0;
+      margin-right: 0.5rem;
+      label {
+        display: inline-block;
+        margin-right: 0.5rem;
+        margin-bottom: 0;
+      }
+
+      input {
+        display: inline-block;
+        height: 2rem;
+        border-radius: 0;
+      }
+
+      .ui-dropdown {
+        width: 12rem !important;
+        height: 2rem;
+      }
+
+      .ui-calendar.ui-calendar-w-btn input {
+        width: auto;
+      }
+    }
+
+    .form-input-wrap,
+    .form-btn {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+  .form-input-wrap {
+    color: #333;
+    margin-bottom: 0.5rem;
+    .text-label {
+      min-width: 6rem;
+      margin-right: 1rem;
+      text-align: right;
+      .mark {
+        color: #f00;
+        background-color: transparent;
+      }
+
+      &.text-top {
+        vertical-align: top;
+      }
+    }
+
+    .form-input {
+      display: inline-block;
+      width: 15rem;
+    }
+
+    .ui-dropdown {
+      width: 15rem !important;
+      height: 2rem;
+      border-radius: 0;
+      .ui-dropdown-label {
+        height: 100%;
+        padding-top: 0.2em;
+        border-radius: 0;
+      }
+    }
+
+    .ui-calendar.ui-calendar-w-btn input {
+      width: 13rem;
+    }
+
+    .error-tip {
+      position: relative;
+      left: 6rem + 1rem;
+      width: 15rem;
+    }
+  }
+
+  //primeng表单元素样式复写
+  p-radiobutton,
+  p-checkbox {
+    margin-right: 0.5rem;
+    white-space: nowrap;
+  }
+
+  //单选元素
+  .ui-radiobutton-label {
+    margin-bottom: 0 !important;
+  }
+
+  .ui-radiobutton-icon {
+    margin-top: 0;
+    font-size: 1em;
+  }
+
+  //多选元素
+  .ui-chkbox-label {
+    margin-bottom: 0;
+  }
+}
+//form表单---//
+
+//---按钮
+.w-app-button {
+  display: inline-block;
+  height: 2rem;
+  border-radius: 0 !important;
+
+  &.ui-button-default,
+  &.ui-button-save {
+    background: rgba(0, 127, 169, 1) !important;
+  }
+
+  &.ui-button-white-theme,
+  &.ui-button-cancel,
+  &.ui-button-delete,
+  &.ui-button-download,
+  &.ui-button-upload {
+    color: #333 !important;
+    background: #fff !important;
+    border: 1px solid rgba(183, 188, 200, 1) !important;
+  }
+
+  &.ui-button-search {
+    background: #1c6573 !important;
+  }
+
+  .ui-button-text {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    font-weight: normal;
+  }
+}
+//按钮---//
+
+//---表格
+.app-w-table {
+  position: relative;
+  color: rgba(51, 51, 51, 1);
+  font-size: 1em;
+
+  //checkbox样式复写
+  .ui-chkbox-box.ui-state-active {
+    border: 1px solid #186ba0 !important;
+    background: #186ba0 !important;
+  }
+
+  // primeng样式复写
+  // 头部样式
+  .ui-table .ui-table-thead > tr > th {
+    height: 3em;
+    color: #fff;
+    border: none !important;
+    background: rgba(0, 53, 75, 1);
+  }
+
+  // body样式
+  .ui-table .ui-table-tbody > tr {
+    td {
+      height: 4em;
+      color: rgba(51, 51, 51, 1);
+      border: none !important;
+      word-break: break-all;
+      a {
+        color: #2196f3 !important;
+      }
+    }
+
+    &.ui-state-highlight {
+      //选中行样式
+      background: transparent;
+      color: rgba(51, 51, 51, 1);
+    }
+
+    &:nth-child(even) {
+      //斑马纹
+      background: rgba(236, 242, 248, 0.4);
+    }
+  }
+
+  .ui-table-tbody > tr:hover {
+    background: rgba(236, 242, 248, 1);
+  }
+
+  .ui-table .ui-paginator-bottom {
+    padding: 1em 0;
+    background: #fff;
+    border-top: 1px solid rgba(217, 215, 223, 1);
+  }
+
+  /*单选按钮样式*/
+  .ui-radiobutton-box.ui-state-active {
+    border: 1px solid #aaa;
+    background: #fff;
+    .ui-radiobutton-icon {
+      font-size: 0.5em;
+      &.fa-circle::before {
+        color: #0693b1;
+        box-shadow: 0 0 2px #2196f3;
+      }
+    }
+  }
+
+  // 其他样式
+  .table-nodata {
+    @extend .text-center;
+  }
+
+  // 页码样式
+  .ui-dropdown.ui-widget {
+    border-radius: 0;
+  }
+
+  .ui-paginator-left-content {
+    margin-left: 2em;
+  }
+
+  .ui-paginator-right-content {
+    margin-right: 2em;
+    > input {
+      width: 3em;
+      height: 1.5em;
+      margin: 0 0.5em;
+    }
+  }
+
+  .ui-paginator-bottom.ui-paginator {
+    .ui-paginator-icon,
+    .ui-paginator-page {
+      color: rgba(51, 51, 51, 1) !important;
+    }
+
+    .ui-paginator-page {
+      line-height: 1.8em !important;
+    }
+
+    .ui-dropdown-label.ui-inputtext {
+      height: 100%;
+      padding: 0.15em 0 0 0.5em;
+      text-align: left;
+    }
+
+    .ui-dropdown.ui-widget.ui-state-default {
+      height: 1.8em;
+      width: 4em;
+      margin: 0;
+      border: 1px solid rgba(217, 215, 223, 1) !important;
+    }
+
+    .ui-paginator-element.ui-state-default {
+      height: 1.8em;
+      margin: 0;
+      padding: 0 0.5em;
+      border: 1px solid rgba(217, 215, 223, 1) !important;
+      &.ui-state-active {
+        color: #fff !important;
+      }
+    }
+
+    .ui-paginator-page,
+    .ui-paginator-pages,
+    .ui-paginator-next,
+    .ui-paginator-last,
+    .ui-paginator-first,
+    .ui-paginator-prev,
+    .ui-paginator-current {
+      height: 1.8em;
+      border-radius: 0;
+      margin: 0;
+    }
+  }
+}
+
+body
+  .ui-dropdown-panel
+  .ui-dropdown-items
+  .ui-dropdown-item.ui-state-highlight {
+  margin: 0;
+  background-color: rgba(0, 127, 169, 1) !important;
+}
+//表格---//

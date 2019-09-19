@@ -1,0 +1,57 @@
+@import "../../../scss/common/variable";
+@import "../../../scss/common/functions";
+
+$headerH: 3.5rem;
+$breadcrumbsH: 2.5rem;
+
+.home-siderbar {
+  float: left;
+  position: relative;
+  width: pxToRem(220px);
+  height: calc(100vh - #{$headerH});
+  background-color: $color-white;
+  box-shadow: 0.5rem 0 0.5rem 0 $color-shadow-siderbar;
+  z-index: 1;
+  &.shrink {
+    width: 3.5rem;
+    .btn-stretch {
+      width: 3.5rem;
+      .stretch-icon {
+        transform: rotate(-180deg);
+      }
+    }
+
+    ::ng-deep .app-scroll-container {
+      overflow: visible;
+    }
+  }
+}
+
+.home-body {
+  position: relative;
+  overflow: auto; //布局用：BFC
+  .home-breadcrumbs {
+    padding: 0.5rem 0 0.5rem 1rem;
+    background-color: $color-white;
+  }
+}
+
+.home-content {
+  padding: 1rem;
+  height: calc(100vh - #{$headerH} - #{$breadcrumbsH});
+}
+
+//伸缩按钮
+.btn-stretch {
+  position: fixed;
+  width: 220px;
+  left: 0;
+  bottom: 0;
+  padding: 0.5rem 0 0.5rem 1rem;
+  border: none;
+  text-align: left;
+  background-color: $color-white;
+  > span {
+    display: inline-block;
+  }
+}

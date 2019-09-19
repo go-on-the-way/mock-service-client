@@ -1,0 +1,16 @@
+<ul class="app-tree-menu" [ngClass]="{'shrink':isShrinked}">
+  <li *ngFor="let menu of menus" (mouseenter)="itemMouseEnter($event,menu)" (mouseleave)="itemMouseLeave($event,menu)">
+    <a *ngIf="!menu.hasChild" class="menu-item" routerLinkActive="active" [routerLink]="menu.routerLink" [attr.title]="menu.label">
+      <i *ngIf="menu.icon" class="menu-icon" [ngClass]="menu.icon"></i>
+      <span class="menu-title">{{menu.label}}</span>
+    </a>
+    <a *ngIf="menu.hasChild" class="menu-item" [ngClass]="{'expand':menu.expanded}" [attr.title]="menu.label" (click)="itemClick($event,menu)">
+      <i *ngIf="menu.icon" class="menu-icon" [ngClass]="menu.icon"></i>
+      <span class="menu-title">{{menu.label}}</span>
+      <i class="trigger-icon rivamed-icon icon-thin-left-arrow"></i>
+    </a>
+    <div [@showHide]="menu.expanded ? 'show' : 'hide'">
+      <app-tree-menu *ngIf="menu.hasChild" class="menu-items" [menus]="menu.children"></app-tree-menu>
+    </div>
+  </li>
+</ul>
